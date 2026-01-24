@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Release"/>
+    <Units>
+      <Unit>
+        <Filename Value="DataSmoother.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="13"/>
+        <CursorPos Y="18"/>
+        <UsageCount Value="162"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="mainunit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MainForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="MainUnit"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="236"/>
+        <CursorPos X="51" Y="261"/>
+        <UsageCount Value="162"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\AppData\Local\lazarus\onlinepackagemanager\packages\FPSpreadsheet\source\common\fpspreadsheet.pas"/>
+        <UnitName Value="fpSpreadsheet"/>
+        <EditorIndex Value="14"/>
+        <TopLine Value="3273"/>
+        <CursorPos Y="3296"/>
+        <UsageCount Value="82"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\grids.pas"/>
+        <UnitName Value="Grids"/>
+        <EditorIndex Value="11"/>
+        <TopLine Value="7072"/>
+        <CursorPos Y="7093"/>
+        <UsageCount Value="80"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\AppData\Local\lazarus\onlinepackagemanager\packages\FPSpreadsheet\source\visual\fpspreadsheetctrls.pas"/>
+        <UnitName Value="fpSpreadsheetCtrls"/>
+        <EditorIndex Value="10"/>
+        <TopLine Value="136"/>
+        <CursorPos X="14" Y="156"/>
+        <UsageCount Value="80"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\include\control.inc"/>
+        <EditorIndex Value="9"/>
+        <TopLine Value="2342"/>
+        <CursorPos X="54" Y="2364"/>
+        <UsageCount Value="74"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\AppData\Local\lazarus\onlinepackagemanager\packages\FPSpreadsheet\source\visual\fpspreadsheetgrid.pas"/>
+        <UnitName Value="fpSpreadsheetGrid"/>
+        <EditorIndex Value="12"/>
+        <TopLine Value="5195"/>
+        <CursorPos Y="5217"/>
+        <UsageCount Value="74"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\AppData\Local\lazarus\onlinepackagemanager\packages\FPSpreadsheet\source\common\fpsutils.pas"/>
+        <UnitName Value="fpsUtils"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="1173"/>
+        <CursorPos X="10" Y="1194"/>
+        <UsageCount Value="66"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\AppData\Local\lazarus\onlinepackagemanager\packages\FPSpreadsheet\source\common\fpstypes.pas"/>
+        <UnitName Value="fpsTypes"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="1019"/>
+        <CursorPos X="24" Y="1039"/>
+        <UsageCount Value="66"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\components\tachart\tasources.pas"/>
+        <UnitName Value="TASources"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="660"/>
+        <CursorPos Y="681"/>
+        <UsageCount Value="61"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\components\tachart\tacustomsource.pas"/>
+        <UnitName Value="TACustomSource"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="285"/>
+        <CursorPos X="5" Y="301"/>
+        <UsageCount Value="61"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\components\tachart\taseries.pas"/>
+        <UnitName Value="TASeries"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="236"/>
+        <CursorPos X="3" Y="245"/>
+        <UsageCount Value="38"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\components\tachart\tacustomseries.pas"/>
+        <UnitName Value="TACustomSeries"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="268"/>
+        <CursorPos X="3" Y="272"/>
+        <UsageCount Value="38"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\math.pp"/>
+        <UnitName Value="Math"/>
+        <EditorIndex Value="2"/>
+        <UsageCount Value="18"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\rtl-generics\src\generics.collections.pas"/>
+        <UnitName Value="Generics.Collections"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="15" Y="29"/>
+        <UsageCount Value="18"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="29">
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="338" Column="10"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="340" Column="3" TopLine="304"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="12" Column="55"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="5" Column="40"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="6"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="5" Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="4" Column="30"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="3" Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="2"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="336" Column="12" TopLine="303"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="32" Column="33"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="336" Column="26" TopLine="303"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="3" Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="336" Column="27" TopLine="303"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="11" Column="64"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="3" Column="20"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="155" Column="32" TopLine="128"/>
+      </Position>
+      <Position>
+        <Filename Value="..\..\AppData\Local\lazarus\onlinepackagemanager\packages\FPSpreadsheet\source\common\fpsutils.pas"/>
+        <Caret Line="91" Column="10" TopLine="71"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="136" Column="3" TopLine="116"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="217" Column="40" TopLine="187"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="218" Column="62" TopLine="196"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="225" Column="62" TopLine="203"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="123" Column="16" TopLine="100"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="116" Column="25" TopLine="96"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="111" Column="60" TopLine="100"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="122" Column="15" TopLine="100"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="123" Column="15" TopLine="101"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="125" Column="15" TopLine="103"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="124" Column="15" TopLine="124"/>
+      </Position>
+      <Position>
+        <Filename Value="mainunit.pas"/>
+        <Caret Line="126" Column="15" TopLine="126"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+  <Debugging>
+    <Watches>
+      <Item>
+        <Expression Value="i"/>
+      </Item>
+      <Item>
+        <Expression Value="maxRow"/>
+      </Item>
+    </Watches>
+  </Debugging>
+</CONFIG>
