@@ -2,3 +2,5 @@
 backup/
 lib/
 *.exe
+*.7z
+*.zip
