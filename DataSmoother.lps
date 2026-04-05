@@ -10,7 +10,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="13"/>
         <CursorPos Y="18"/>
-        <UsageCount Value="162"/>
+        <UsageCount Value="164"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -23,7 +23,7 @@
         <IsVisibleTab Value="True"/>
         <TopLine Value="236"/>
         <CursorPos X="51" Y="261"/>
-        <UsageCount Value="162"/>
+        <UsageCount Value="164"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -33,7 +33,7 @@
         <EditorIndex Value="14"/>
         <TopLine Value="3273"/>
         <CursorPos Y="3296"/>
-        <UsageCount Value="82"/>
+        <UsageCount Value="83"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -42,7 +42,7 @@
         <EditorIndex Value="11"/>
         <TopLine Value="7072"/>
         <CursorPos Y="7093"/>
-        <UsageCount Value="80"/>
+        <UsageCount Value="81"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -51,7 +51,7 @@
         <EditorIndex Value="10"/>
         <TopLine Value="136"/>
         <CursorPos X="14" Y="156"/>
-        <UsageCount Value="80"/>
+        <UsageCount Value="81"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -59,7 +59,7 @@
         <EditorIndex Value="9"/>
         <TopLine Value="2342"/>
         <CursorPos X="54" Y="2364"/>
-        <UsageCount Value="74"/>
+        <UsageCount Value="75"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -68,7 +68,7 @@
         <EditorIndex Value="12"/>
         <TopLine Value="5195"/>
         <CursorPos Y="5217"/>
-        <UsageCount Value="74"/>
+        <UsageCount Value="75"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -77,7 +77,7 @@
         <EditorIndex Value="7"/>
         <TopLine Value="1173"/>
         <CursorPos X="10" Y="1194"/>
-        <UsageCount Value="66"/>
+        <UsageCount Value="67"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -86,7 +86,7 @@
         <EditorIndex Value="8"/>
         <TopLine Value="1019"/>
         <CursorPos X="24" Y="1039"/>
-        <UsageCount Value="66"/>
+        <UsageCount Value="67"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -95,7 +95,7 @@
         <EditorIndex Value="5"/>
         <TopLine Value="660"/>
         <CursorPos Y="681"/>
-        <UsageCount Value="61"/>
+        <UsageCount Value="62"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -104,7 +104,7 @@
         <EditorIndex Value="6"/>
         <TopLine Value="285"/>
         <CursorPos X="5" Y="301"/>
-        <UsageCount Value="61"/>
+        <UsageCount Value="62"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -113,7 +113,7 @@
         <EditorIndex Value="3"/>
         <TopLine Value="236"/>
         <CursorPos X="3" Y="245"/>
-        <UsageCount Value="38"/>
+        <UsageCount Value="39"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -122,14 +122,14 @@
         <EditorIndex Value="4"/>
         <TopLine Value="268"/>
         <CursorPos X="3" Y="272"/>
-        <UsageCount Value="38"/>
+        <UsageCount Value="39"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\math.pp"/>
         <UnitName Value="Math"/>
         <EditorIndex Value="2"/>
-        <UsageCount Value="18"/>
+        <UsageCount Value="19"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -137,7 +137,7 @@
         <UnitName Value="Generics.Collections"/>
         <EditorIndex Value="1"/>
         <CursorPos X="15" Y="29"/>
-        <UsageCount Value="18"/>
+        <UsageCount Value="19"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>

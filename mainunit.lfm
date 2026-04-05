@@ -1,21 +1,26 @@
 object MainForm: TMainForm
   Left = 685
-  Height = 1130
+  Height = 706
   Top = 44
-  Width = 1941
+  Width = 1213
   Caption = 'DataSmoother'
-  ClientHeight = 1130
-  ClientWidth = 1941
-  DesignTimePPI = 192
+  ClientHeight = 706
+  ClientWidth = 1213
+  DesignTimePPI = 120
   Menu = MainMenu1
+  Position = poScreenCenter
   LCLVersion = '4.4.0.0'
   object ToolBar: TToolBar
     Left = 0
-    Height = 52
+    Height = 50
     Top = 0
-    Width = 1941
+    Width = 1213
+    AutoSize = True
+    ButtonHeight = 48
+    ButtonWidth = 48
     Caption = 'ToolBar'
     Images = ImageList1
+    ImagesWidth = 24
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
@@ -25,55 +30,55 @@ object MainForm: TMainForm
       Action = FileOpen
     end
     object ToolButton2: TToolButton
-      Left = 93
-      Height = 44
+      Left = 97
+      Height = 48
       Top = 2
       Caption = 'ToolButton2'
       Style = tbsDivider
     end
     object ToolButton3: TToolButton
-      Left = 98
+      Left = 100
       Top = 2
       Action = FileExit
     end
     object ToolButton4: TToolButton
-      Left = 47
+      Left = 49
       Top = 2
       Action = SaveFile
     end
   end
   object StatusBar: TStatusBar
     Left = 0
-    Height = 44
-    Top = 1086
-    Width = 1941
+    Height = 29
+    Top = 677
+    Width = 1213
     Panels = <    
       item
-        Width = 150
+        Width = 94
       end    
       item
-        Width = 50
+        Width = 31
       end>
     SimplePanel = False
   end
   object PageControl1: TPageControl
     Left = 0
-    Height = 1034
-    Top = 52
-    Width = 1941
+    Height = 627
+    Top = 50
+    Width = 1213
     ActivePage = TabSheet1
     Align = alClient
     TabIndex = 0
     TabOrder = 2
     object TabSheet1: TTabSheet
       Caption = 'Opened File'
-      ClientHeight = 976
-      ClientWidth = 1925
+      ClientHeight = 594
+      ClientWidth = 1205
       object WorksheetGrid: TsWorksheetGrid
         Left = 0
-        Height = 924
+        Height = 562
         Top = 0
-        Width = 1925
+        Width = 1205
         FrozenCols = 0
         FrozenRows = 0
         PageBreakPen.Color = clBlue
@@ -91,9 +96,9 @@ object MainForm: TMainForm
       end
       object sWorkbookTabControl1: TsWorkbookTabControl
         Left = 0
-        Height = 52
-        Top = 924
-        Width = 1925
+        Height = 32
+        Top = 562
+        Width = 1205
         Style = tsFlatButtons
         TabIndex = 0
         Tabs.Strings = (
@@ -106,13 +111,13 @@ object MainForm: TMainForm
     end
     object TabSheet2: TTabSheet
       Caption = 'Smoothing'
-      ClientHeight = 976
-      ClientWidth = 1925
+      ClientHeight = 594
+      ClientWidth = 1205
       object Chart1: TChart
         Left = 0
-        Height = 976
+        Height = 594
         Top = 0
-        Width = 1445
+        Width = 905
         AntialiasingMode = amOn
         AxisList = <        
           item
@@ -156,25 +161,24 @@ object MainForm: TMainForm
         end
       end
       object Panel1: TPanel
-        Left = 1445
-        Height = 976
+        Left = 905
+        Height = 594
         Top = 0
-        Width = 480
+        Width = 300
         Align = alRight
-        ClientHeight = 976
-        ClientWidth = 480
+        ClientHeight = 594
+        ClientWidth = 300
         TabOrder = 1
         object MovingAverageRadioButton: TRadioButton
           AnchorSideLeft.Control = Panel1
           AnchorSideTop.Control = Panel1
           AnchorSideRight.Control = Panel1
           AnchorSideRight.Side = asrBottom
-          Left = 15
-          Height = 36
-          Top = 11
-          Width = 326
-          Anchors = [akTop]
-          BorderSpacing.Top = 10
+          Left = 1
+          Height = 24
+          Top = 7
+          Width = 203
+          BorderSpacing.Top = 6
           Caption = 'Moving average smoothing'
           TabOrder = 0
           OnChange = MovingAverageRadioButtonChange
@@ -186,12 +190,11 @@ object MainForm: TMainForm
           AnchorSideTop.Side = asrBottom
           AnchorSideRight.Control = Panel1
           AnchorSideRight.Side = asrBottom
-          Left = 15
-          Height = 36
-          Top = 122
-          Width = 358
-          Anchors = [akTop]
-          BorderSpacing.Top = 15
+          Left = 1
+          Height = 24
+          Top = 77
+          Width = 224
+          BorderSpacing.Top = 9
           Caption = 'Simple exponential smoothing'
           TabOrder = 1
           OnChange = ExponentialRadioButtonChange
@@ -203,12 +206,11 @@ object MainForm: TMainForm
           AnchorSideTop.Side = asrBottom
           AnchorSideRight.Control = Panel1
           AnchorSideRight.Side = asrBottom
-          Left = 15
-          Height = 36
-          Top = 233
-          Width = 234
-          Anchors = [akTop]
-          BorderSpacing.Top = 15
+          Left = 1
+          Height = 24
+          Top = 147
+          Width = 146
+          BorderSpacing.Top = 9
           Caption = 'Median smoothing'
           TabOrder = 2
           OnChange = MedianRadioButtonChange
@@ -220,18 +222,18 @@ object MainForm: TMainForm
           AnchorSideTop.Side = asrBottom
           AnchorSideRight.Control = Panel1
           AnchorSideRight.Side = asrBottom
-          Left = 15
-          Height = 50
-          Top = 57
-          Width = 452
+          Left = 1
+          Height = 31
+          Top = 37
+          Width = 298
           Frequency = 2
           LineSize = 2
           Max = 31
           Min = 3
           Position = 3
           OnChange = MovingAverageSpanChange
-          Anchors = [akTop]
-          BorderSpacing.Top = 10
+          Anchors = [akTop, akLeft, akRight]
+          BorderSpacing.Top = 6
           Enabled = False
           TabOrder = 3
         end
@@ -241,16 +243,16 @@ object MainForm: TMainForm
           AnchorSideTop.Side = asrBottom
           AnchorSideRight.Control = Panel1
           AnchorSideRight.Side = asrBottom
-          Left = 15
-          Height = 50
-          Top = 168
-          Width = 452
+          Left = 1
+          Height = 31
+          Top = 107
+          Width = 298
           Max = 9
           Min = 1
           Position = 1
           OnChange = ExponentialSpanChange
-          Anchors = [akTop]
-          BorderSpacing.Top = 10
+          Anchors = [akTop, akLeft, akRight]
+          BorderSpacing.Top = 6
           Enabled = False
           TabOrder = 4
         end
@@ -260,47 +262,47 @@ object MainForm: TMainForm
           AnchorSideTop.Side = asrBottom
           AnchorSideRight.Control = Panel1
           AnchorSideRight.Side = asrBottom
-          Left = 15
-          Height = 50
-          Top = 279
-          Width = 452
+          Left = 1
+          Height = 31
+          Top = 177
+          Width = 298
           Frequency = 2
           LineSize = 2
           Max = 31
           Min = 3
           Position = 3
           OnChange = MedianSpanChange
-          Anchors = [akTop]
-          BorderSpacing.Top = 10
+          Anchors = [akTop, akLeft, akRight]
+          BorderSpacing.Top = 6
           Enabled = False
           TabOrder = 5
         end
         object WriteButton: TButton
           AnchorSideTop.Control = MedianSpan
           AnchorSideTop.Side = asrBottom
-          Left = 15
-          Height = 50
-          Top = 379
-          Width = 452
-          BorderSpacing.Top = 50
+          Left = 9
+          Height = 31
+          Top = 239
+          Width = 282
+          BorderSpacing.Top = 31
           Caption = 'Write'
           TabOrder = 6
           OnClick = WriteButtonClick
         end
       end
       object Label1: TLabel
-        Left = 626
-        Height = 32
-        Top = 453
-        Width = 69
+        Left = 391
+        Height = 20
+        Top = 283
+        Width = 44
         Caption = 'Label1'
       end
     end
   end
   object ActionList1: TActionList
     Images = ImageList1
-    Left = 448
-    Top = 528
+    Left = 280
+    Top = 330
     object SaveFile: TAction
       Category = 'File'
       Caption = 'Save'
@@ -326,8 +328,8 @@ object MainForm: TMainForm
   end
   object MainMenu1: TMainMenu
     Images = ImageList1
-    Left = 616
-    Top = 528
+    Left = 385
+    Top = 330
     object MenuItem1: TMenuItem
       Caption = 'File'
       object MenuItem2: TMenuItem
@@ -347,13 +349,13 @@ object MainForm: TMainForm
   object WorkbookSource: TsWorkbookSource
     FileFormat = sfUser
     Options = []
-    Left = 792
-    Top = 528
+    Left = 495
+    Top = 330
   end
   object ImageList1: TImageList
     Scaled = True
-    Left = 1008
-    Top = 528
+    Left = 630
+    Top = 330
     Bitmap = {
       4C7A050000001000000010000000160300000000000078DACD983968544118C7
       9FC79268A1898A854661235A2A78366EA3168278A0BE05C1AB930DB150113558
@@ -603,8 +605,8 @@ object MainForm: TMainForm
   end
   object WorksheetGridPopupMenu: TPopupMenu
     Images = ImageList1
-    Left = 448
-    Top = 640
+    Left = 280
+    Top = 400
     object GetSelectedDataMenuItem: TMenuItem
       Caption = 'Get selected data'
       ImageIndex = 2
@@ -617,11 +619,11 @@ object MainForm: TMainForm
     end
   end
   object OriginalDataSource: TListChartSource
-    Left = 448
-    Top = 424
+    Left = 280
+    Top = 265
   end
   object SmoothedDataSource: TListChartSource
-    Left = 616
-    Top = 424
+    Left = 385
+    Top = 265
   end
 end
