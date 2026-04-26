@@ -8,7 +8,7 @@ uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ActnList, Menus,
   ComCtrls, StdActns, ExtCtrls, TAGraph, TAFuncSeries, TASeries, TASources,
   fpSpreadsheetCtrls, fpSpreadsheetGrid, fpsallformats,
-  Grids, StdCtrls, fpSpreadsheet, fpsTypes, fpsUtils, Generics.Collections;
+  Grids, StdCtrls, fpSpreadsheet, fpsTypes, fpsUtils, Generics.Collections, Math;
 
 const
   PANEL_SELECTED_RANGE = 0;
@@ -18,6 +18,7 @@ const
   MODE_MOVING_AVERAGE = 1;
   MODE_SIMPLE_EXPONENTIAL = 2;
   MODE_MEDIAN = 3;
+  MODE_LOWESS = 4;
 
 type
   TDoubleArray = array of Double;
@@ -44,6 +45,8 @@ type
     MovingAverageSpan: TTrackBar;
     ExponentialSpan: TTrackBar;
     MedianSpan: TTrackBar;
+    LowessRadioButton: TRadioButton;
+    LowessSpan: TTrackBar;
     WorksheetGridPopupMenu: TPopupMenu;
     SmoothedData: TLineSeries;
     FileExit: TFileExit;
@@ -73,6 +76,9 @@ type
     procedure MedianRadioButtonChange(Sender: TObject);
     procedure MedianRadioButtonClick(Sender: TObject);
     procedure MedianSpanChange(Sender: TObject);
+    procedure LowessRadioButtonChange(Sender: TObject);
+    procedure LowessRadioButtonClick(Sender: TObject);
+    procedure LowessSpanChange(Sender: TObject);
     procedure MovingAverageRadioButtonChange(Sender: TObject);
     procedure MovingAverageRadioButtonClick(Sender: TObject);
     procedure MovingAverageSpanChange(Sender: TObject);
@@ -84,6 +90,7 @@ type
     procedure MovingAverageMethod(const InputData: TDoubleArray; var OutputData: TDoubleArray; const Span: Integer);
     procedure SimpleExponentialMethod(const InputData: TDoubleArray; var OutputData: TDoubleArray; const Alpha: Real);
     procedure MedianMethod(const InputData: TDoubleArray; var OutputData: TDoubleArray; const Span: Integer);
+    procedure LowessMethod(const XData, YData: TDoubleArray; var OutputData: TDoubleArray; const Span: Integer);
   public
     FileName: String;
     OriginalDataArray: array of array of Double;
@@ -209,6 +216,29 @@ begin
   end;
 end;
 
+procedure TMainForm.LowessRadioButtonChange(Sender: TObject);
+begin
+  LowessSpan.Enabled := LowessRadioButton.Checked;
+end;
+
+procedure TMainForm.LowessRadioButtonClick(Sender: TObject);
+begin
+  SmoothingMode := MODE_LOWESS;
+  updateSmoothedChart;
+end;
+
+procedure TMainForm.LowessSpanChange(Sender: TObject);
+begin
+  if not Odd(LowessSpan.Position) then
+  begin
+    if LowessSpan.Position < LowessSpan.Max then
+      LowessSpan.Position := LowessSpan.Position + 1
+    else
+      LowessSpan.Position := LowessSpan.Position - 1;
+  end;
+  updateSmoothedChart;
+end;
+
 procedure TMainForm.MedianRadioButtonChange(Sender: TObject);
 begin
   MedianSpan.Enabled := MedianRadioButton.Checked;
@@ -319,6 +349,9 @@ begin
     MODE_MEDIAN: begin
       MedianMethod(Y, SmoothedY, MedianSpan.Position);
     end;
+    MODE_LOWESS: begin
+      LowessMethod(X, Y, SmoothedY, LowessSpan.Position);
+    end;
   end;
   if (length(SmoothedY) > 0) then begin
     for i := 0 to arraySize - 1 do begin
@@ -405,6 +438,77 @@ begin
     TArrayHelper<Double>.Sort(Window);
     // 4. Выбор медианы (центральный элемент)
     OutputData[i] := Window[WindowSize div 2];
+  end;
+end;
+
+procedure TMainForm.LowessMethod(const XData, YData: TDoubleArray; var OutputData: TDoubleArray; const Span: Integer);
+// XData, YData: входные массивы.
+// OutputData: сглаженный массив.
+// Span: ширина окна (должна быть нечетной).
+var
+  i, j, N, HalfSpan: Integer;
+  StartIndex, EndIndex, WindowSize: Integer;
+  dMax, Dist: Double;
+  Weights: TDoubleArray;
+  SumW, SumWX, SumWY, SumWXX, SumWXY, Xw, Yw: Double;
+  Beta0, Beta1: Double;
+begin
+  N := Length(XData);
+  if (N = 0) or (Span < 3) then Exit;
+  HalfSpan := (Span - 1) div 2;
+  SetLength(OutputData, N);
+  SetLength(Weights, Span);
+
+  for i := 0 to N - 1 do begin
+    StartIndex := i - HalfSpan;
+    if StartIndex < 0 then StartIndex := 0;
+    EndIndex := i + HalfSpan;
+    if EndIndex > N - 1 then EndIndex := N - 1;
+    WindowSize := EndIndex - StartIndex + 1;
+
+    dMax := 0.0;
+    for j := StartIndex to EndIndex do begin
+      Dist := Abs(XData[j] - XData[i]);
+      if Dist > dMax then dMax := Dist;
+    end;
+
+    SumW := 0.0;
+    SumWX := 0.0;
+    SumWY := 0.0;
+
+    for j := StartIndex to EndIndex do begin
+      if dMax > 0.0 then begin
+        Dist := Abs(XData[j] - XData[i]) / dMax;
+        Weights[j - StartIndex] := Math.Power(1.0 - Dist * Dist * Dist, 3.0);
+      end else begin
+        Weights[j - StartIndex] := 1.0;
+      end;
+      SumW := SumW + Weights[j - StartIndex];
+      SumWX := SumWX + Weights[j - StartIndex] * XData[j];
+      SumWY := SumWY + Weights[j - StartIndex] * YData[j];
+    end;
+
+    if SumW > 0.0 then begin
+      Xw := SumWX / SumW;
+      Yw := SumWY / SumW;
+
+      SumWXX := 0.0;
+      SumWXY := 0.0;
+      for j := StartIndex to EndIndex do begin
+        SumWXX := SumWXX + Weights[j - StartIndex] * (XData[j] - Xw) * (XData[j] - Xw);
+        SumWXY := SumWXY + Weights[j - StartIndex] * (XData[j] - Xw) * (YData[j] - Yw);
+      end;
+
+      if SumWXX > 1e-12 then begin
+        Beta1 := SumWXY / SumWXX;
+        Beta0 := Yw - Beta1 * Xw;
+        OutputData[i] := Beta0 + Beta1 * XData[i];
+      end else begin
+        OutputData[i] := Yw;
+      end;
+    end else begin
+      OutputData[i] := YData[i];
+    end;
   end;
 end;
 

@@ -277,16 +277,53 @@ object MainForm: TMainForm
           Enabled = False
           TabOrder = 5
         end
-        object WriteButton: TButton
+        object LowessRadioButton: TRadioButton
+          AnchorSideLeft.Control = Panel1
           AnchorSideTop.Control = MedianSpan
+          AnchorSideTop.Side = asrBottom
+          AnchorSideRight.Control = Panel1
+          AnchorSideRight.Side = asrBottom
+          Left = 1
+          Height = 36
+          Top = 341
+          Width = 234
+          BorderSpacing.Top = 14
+          Caption = 'LOWESS smoothing'
+          TabOrder = 6
+          OnChange = LowessRadioButtonChange
+          OnClick = LowessRadioButtonClick
+        end
+        object LowessSpan: TTrackBar
+          AnchorSideLeft.Control = Panel1
+          AnchorSideTop.Control = LowessRadioButton
+          AnchorSideTop.Side = asrBottom
+          AnchorSideRight.Control = Panel1
+          AnchorSideRight.Side = asrBottom
+          Left = 1
+          Height = 50
+          Top = 387
+          Width = 478
+          Frequency = 2
+          LineSize = 2
+          Max = 31
+          Min = 3
+          Position = 3
+          OnChange = LowessSpanChange
+          Anchors = [akTop, akLeft, akRight]
+          BorderSpacing.Top = 10
+          Enabled = False
+          TabOrder = 7
+        end
+        object WriteButton: TButton
+          AnchorSideTop.Control = LowessSpan
           AnchorSideTop.Side = asrBottom
           Left = 14
           Height = 50
-          Top = 377
+          Top = 487
           Width = 451
           BorderSpacing.Top = 50
           Caption = 'Write'
-          TabOrder = 6
+          TabOrder = 8
           OnClick = WriteButtonClick
         end
       end
