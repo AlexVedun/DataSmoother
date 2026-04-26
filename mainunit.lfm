@@ -286,7 +286,7 @@ object MainForm: TMainForm
           Left = 1
           Height = 36
           Top = 341
-          Width = 234
+          Width = 242
           BorderSpacing.Top = 14
           Caption = 'LOWESS smoothing'
           TabOrder = 6
@@ -314,16 +314,51 @@ object MainForm: TMainForm
           Enabled = False
           TabOrder = 7
         end
-        object WriteButton: TButton
+        object SplineRadioButton: TRadioButton
+          AnchorSideLeft.Control = Panel1
           AnchorSideTop.Control = LowessSpan
+          AnchorSideTop.Side = asrBottom
+          AnchorSideRight.Control = Panel1
+          AnchorSideRight.Side = asrBottom
+          Left = 1
+          Height = 36
+          Top = 451
+          Width = 232
+          BorderSpacing.Top = 14
+          Caption = 'Smoothing Splines'
+          TabOrder = 8
+          OnChange = SplineRadioButtonChange
+          OnClick = SplineRadioButtonClick
+        end
+        object SplineSpan: TTrackBar
+          AnchorSideLeft.Control = Panel1
+          AnchorSideTop.Control = SplineRadioButton
+          AnchorSideTop.Side = asrBottom
+          AnchorSideRight.Control = Panel1
+          AnchorSideRight.Side = asrBottom
+          Left = 1
+          Height = 50
+          Top = 497
+          Width = 478
+          Max = 100
+          Min = 1
+          Position = 1
+          OnChange = SplineSpanChange
+          Anchors = [akTop, akLeft, akRight]
+          BorderSpacing.Top = 10
+          Enabled = False
+          TabOrder = 9
+        end
+        object WriteButton: TButton
+          AnchorSideTop.Control = SplineSpan
           AnchorSideTop.Side = asrBottom
           Left = 14
           Height = 50
-          Top = 487
+          Top = 597
           Width = 451
           BorderSpacing.Top = 50
           Caption = 'Write'
-          TabOrder = 8
+          TabOrder = 10
           OnClick = WriteButtonClick
         end
       end

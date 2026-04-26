@@ -28,6 +28,11 @@
         <LoadedDesigner Value="True"/>
       </Unit>
       <Unit>
+        <Filename Value="SmoothingAlgorithms.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UsageCount Value="20"/>
+      </Unit>
+      <Unit>
         <Filename Value="..\..\AppData\Local\lazarus\onlinepackagemanager\packages\FPSpreadsheet\source\common\fpspreadsheet.pas"/>
         <UnitName Value="fpSpreadsheet"/>
         <EditorIndex Value="14"/>

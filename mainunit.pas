@@ -8,7 +8,7 @@ uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ActnList, Menus,
   ComCtrls, StdActns, ExtCtrls, TAGraph, TAFuncSeries, TASeries, TASources,
   fpSpreadsheetCtrls, fpSpreadsheetGrid, fpsallformats,
-  Grids, StdCtrls, fpSpreadsheet, fpsTypes, fpsUtils, Generics.Collections, SmoothingAlgorithms;
+  Grids, StdCtrls, fpSpreadsheet, fpsTypes, fpsUtils, Generics.Collections, SmoothingAlgorithms, Math;
 
 const
   PANEL_SELECTED_RANGE = 0;
@@ -19,6 +19,7 @@ const
   MODE_SIMPLE_EXPONENTIAL = 2;
   MODE_MEDIAN = 3;
   MODE_LOWESS = 4;
+  MODE_SPLINE = 5;
 
 type
   { TMainForm }
@@ -45,6 +46,8 @@ type
     MedianSpan: TTrackBar;
     LowessRadioButton: TRadioButton;
     LowessSpan: TTrackBar;
+    SplineRadioButton: TRadioButton;
+    SplineSpan: TTrackBar;
     WorksheetGridPopupMenu: TPopupMenu;
     SmoothedData: TLineSeries;
     FileExit: TFileExit;
@@ -77,6 +80,9 @@ type
     procedure LowessRadioButtonChange(Sender: TObject);
     procedure LowessRadioButtonClick(Sender: TObject);
     procedure LowessSpanChange(Sender: TObject);
+    procedure SplineRadioButtonChange(Sender: TObject);
+    procedure SplineRadioButtonClick(Sender: TObject);
+    procedure SplineSpanChange(Sender: TObject);
     procedure MovingAverageRadioButtonChange(Sender: TObject);
     procedure MovingAverageRadioButtonClick(Sender: TObject);
     procedure MovingAverageSpanChange(Sender: TObject);
@@ -232,6 +238,22 @@ begin
   updateSmoothedChart;
 end;
 
+procedure TMainForm.SplineRadioButtonChange(Sender: TObject);
+begin
+  SplineSpan.Enabled := SplineRadioButton.Checked;
+end;
+
+procedure TMainForm.SplineRadioButtonClick(Sender: TObject);
+begin
+  SmoothingMode := MODE_SPLINE;
+  updateSmoothedChart;
+end;
+
+procedure TMainForm.SplineSpanChange(Sender: TObject);
+begin
+  updateSmoothedChart;
+end;
+
 procedure TMainForm.MedianRadioButtonChange(Sender: TObject);
 begin
   MedianSpan.Enabled := MedianRadioButton.Checked;
@@ -344,6 +366,9 @@ begin
     end;
     MODE_LOWESS: begin
       TSmoother.LowessMethod(X, Y, SmoothedY, LowessSpan.Position);
+    end;
+    MODE_SPLINE: begin
+      TSmoother.SplineMethod(X, Y, SmoothedY, Math.Power(10.0, (SplineSpan.Position - 50.0) / 10.0));
     end;
   end;
   if (length(SmoothedY) > 0) then begin

@@ -139,7 +139,6 @@
       <Unit>
         <Filename Value="SmoothingAlgorithms.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="SmoothingAlgorithms"/>
       </Unit>
     </Units>
   </ProjectOptions>
