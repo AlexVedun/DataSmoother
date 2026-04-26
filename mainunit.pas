@@ -8,7 +8,8 @@ uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ActnList, Menus,
   ComCtrls, StdActns, ExtCtrls, TAGraph, TAFuncSeries, TASeries, TASources,
   fpSpreadsheetCtrls, fpSpreadsheetGrid, fpsallformats,
-  Grids, StdCtrls, fpSpreadsheet, fpsTypes, fpsUtils, Generics.Collections, SmoothingAlgorithms, Math;
+  Grids, StdCtrls, fpSpreadsheet, fpsTypes, fpsUtils, Generics.Collections,
+  SmoothingAlgorithms, Math, UpdaterUnit;
 
 const
   PANEL_SELECTED_RANGE = 0;
@@ -83,6 +84,7 @@ type
     procedure SplineRadioButtonChange(Sender: TObject);
     procedure SplineRadioButtonClick(Sender: TObject);
     procedure SplineSpanChange(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure MovingAverageRadioButtonChange(Sender: TObject);
     procedure MovingAverageRadioButtonClick(Sender: TObject);
     procedure MovingAverageSpanChange(Sender: TObject);
@@ -108,6 +110,17 @@ implementation
 {$R *.lfm}
 
 { TMainForm }
+
+procedure TMainForm.FormCreate(Sender: TObject);
+var
+  OldExe: String;
+begin
+  OldExe := ChangeFileExt(ParamStr(0), '_old.exe');
+  if FileExists(OldExe) then
+    DeleteFile(OldExe);
+
+  TUpdateThread.Create;
+end;
 
 procedure TMainForm.WorksheetGridTopLeftChanged(Sender: TObject);
 begin
